@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
       const [email, setEmail] = useState('');
@@ -22,7 +24,8 @@ const Login = () => {
     
 
       return (
-            <Form onSubmit={handleSubmit}>
+            <Container className='d-flex justify-content-center'>
+            <Form className='w-50 '  onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} />
@@ -36,7 +39,9 @@ const Login = () => {
                   <Button variant="primary" type="submit">
                         Submit
                   </Button>
+                  <p>New to <span>Quisinne De French</span>? <Link to={'/register'}>Register</Link></p>
             </Form>
+            </Container>
 
       );
 };
