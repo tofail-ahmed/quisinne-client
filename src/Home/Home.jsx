@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
       const [chefs, setChefs] = useState([])
@@ -14,6 +16,7 @@ const Home = () => {
                   {
 chefs.map(chef=> <div className='text-center'>
 <h3>{chef.chefName}</h3>
+      <Button><Link to={`${chef.chef_id}`}>See Details</Link></Button>
 <img className='w-25' src={chef.chefPic} alt="" />
 
 </div>)
