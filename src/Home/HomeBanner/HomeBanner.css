@@ -1,0 +1,23 @@
+/* #HomeBannerImg {
+      position: relative;
+} */
+
+.HomeBannerText {
+      /* position: absolute;
+      top: 50px;
+      right: 100px;
+      left: 100px;
+      padding: 10px;
+      text-align: center; */
+
+      background-image: url('../../assets//quisinneHomeBanner.jpg');
+      padding: 10px;
+      color: rgba(249, 126, 2, 0.833);
+      height: 400px;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+
+
+
+}
