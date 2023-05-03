@@ -1,3 +1,8 @@
 .chefDetailsBannerText{
-      
+      background: linear-gradient(to bottom, rgba(229, 110, 13, 0.17), rgba(6, 171, 130, 0.5));
+
+}
+.recipe-details{
+      background: linear-gradient(to left,rgba(255, 0, 0, 0.234), rgba(232, 154, 90, 0.17),rgba(255, 166, 0, 0.257), rgba(248, 114, 139, 0.5), rgba(8, 205, 8, 0.313));
+
 }

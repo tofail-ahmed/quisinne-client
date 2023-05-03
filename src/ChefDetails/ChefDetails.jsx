@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Col, Collapse, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import chefDetailsbanner from '../assets/chefDetailsbanner.jpg'
 import './ChefDetails.css'
@@ -8,6 +8,11 @@ import './ChefDetails.css'
 const ChefDetails = () => {
       const chef = useLoaderData()
       const { chefName, chefPic, recipes, description, numRecipes, experienceYears } = chef
+      const [clicked,setClicked]=useState(false)
+      const handleAddToFavorite=()=>{
+            setClicked(true)
+            alert("added to favourite")
+      }
       return (
             <Container>
 
@@ -24,23 +29,36 @@ const ChefDetails = () => {
                         </div>
 
                   </div>
-                  <h3>Here Is Some Famous Recipes Of <span className='fw-bold text-info'>{chefName}</span></h3>
+                  <h3 className='text-warning fw-bolder'>Here Is Some Famous Recipes Of <span className='fw-bold text-info'>{chefName}</span></h3>
                   {recipes.map(recipe =>
-                        <div>
+                        <div className='d-flex recipe-details my-4 p-3 rounded-3'>
 
-                              <img style={{ height: '300px' }} className='w-25 rounded rounded-circle' src={recipe.recipe_pic} alt="" />
-
-                              <div>
-                                    <h2>Recipes: {recipe.recipeName}</h2>
-                                    <p>cookingMethod:{recipe.cookingMethod}</p>
-                                    <p>description:{recipe.description}</p>
-                                    <h4>Ingredients</h4>
-                                    <p>1.{recipe.ingredients[0]}</p>
-                                    <p>2.{recipe.ingredients[1]}</p>
-                                    <p>3.{recipe.ingredients[2]}</p>
-                                    <p>4.{recipe.ingredients[3]}</p>
-                                    <p>5.{recipe.ingredients[4]}</p>
-                              </div>
+                              <Row>
+                                    <Col>
+                                          <div>
+                                                <h2><span className='fw-bold'>Recipe:</span> {recipe.recipeName}</h2>
+                                                <p><span className='fw-bold'>cookingMethod:</span>{recipe.cookingMethod}</p>
+                                                <p><span className='fw-bold'>Recipe Description:</span>{recipe.description}</p>
+                                                <h4>Ingredients</h4>
+                                                <div className='d-flex g-2'>
+                                                      <p>1.{recipe.ingredients[0]}</p>
+                                                      <p>2.{recipe.ingredients[1]}</p>
+                                                      <p>3.{recipe.ingredients[2]}</p>
+                                                      <p>4.{recipe.ingredients[3]}</p>
+                                                      <p>5.{recipe.ingredients[4]}</p>
+                                                </div>
+                                                <div className='d-flex align-item-center justify-content-between'>
+                                                      <p>Rating:{recipe.rating}</p>
+                                                     {
+                                                      !clicked && <Button onClick={handleAddToFavorite} className='btn btn-info'>Add to Favorite</Button>
+                                                     }
+                                                </div>
+                                          </div>
+                                    </Col>
+                                    <Col className='text-center'>
+                                          <img style={{ height: '300px', width: "300px" }} className=' rounded rounded-circle' src={recipe.recipe_pic} alt="" />
+                                    </Col>
+                              </Row>
 
                         </div>
 

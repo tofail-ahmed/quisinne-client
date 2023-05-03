@@ -19,10 +19,8 @@ const Home = () => {
             <Container >
                   <HomeBanner></HomeBanner>
                   <Row>
-                        <Col lg={3}>
-                              <RightNavBar></RightNavBar>
-                        </Col>
-                        <Col lg={6}>
+
+                        <Col lg={9}>
                               <h2 className='text-center'>Some of Your Favorite Chefs are here</h2>
                               {
                                     chefs.map(chef => <div className='text-center d-flex border border-2 m-4 rounded-4  bg-info'>
@@ -47,6 +45,11 @@ const Home = () => {
                               }
                         </Col>
                         <Col lg={3}>
+                              <RightNavBar></RightNavBar>
+                        </Col>
+                  </Row>
+                  <Row>
+                        <Col >
                               <LeftNavBar></LeftNavBar>
                         </Col>
                   </Row>

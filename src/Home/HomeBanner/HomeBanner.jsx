@@ -14,7 +14,7 @@ const HomeBanner = () => {
                               </Col>
                               <Col lg={6}>
 
-                                    <h1>Welcome To <span className='text-danger'>Quisinne De Fench</span></h1>
+                                    <h3>Welcome To <br /> <h1 className='text-danger'>Quisinne De Fench</h1></h3>
                                     <h4 className='text-white'>Eat Helathy, Stay Haelthy</h4>
                                     <h3>We Provide World's Best French Cuisine By world's Top Chefs</h3>
                               </Col>
