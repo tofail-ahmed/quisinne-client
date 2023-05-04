@@ -3,15 +3,19 @@ import { Button, Col, Collapse, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import chefDetailsbanner from '../assets/chefDetailsbanner.jpg'
 import './ChefDetails.css'
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 const ChefDetails = () => {
+      const notify = () => toast("Added to favorite list!");
       const chef = useLoaderData()
       const { chefName, chefPic, recipes, description, numRecipes, experienceYears } = chef
       const [clicked, setClicked] = useState(false)
       const handleAddToFavorite = () => {
             setClicked(true)
-            alert("added to favourite")
+            toast("Wow so easy!")
+            
       }
       return (
             <Container>
@@ -53,8 +57,9 @@ const ChefDetails = () => {
                                                 <div className='d-flex align-item-center justify-content-between'>
                                                       <p>Rating:{recipe.rating}</p>
                                                       {
-                                                            !clicked && <Button onClick={handleAddToFavorite} className='btn btn-info'>Add to Favorite</Button>
+                                                            !clicked && <Button  onClick={handleAddToFavorite } className='btn btn-info'>Add to Favorite</Button>
                                                       }
+                                                      <ToastContainer />
                                                 </div>
                                           </div>
                                     </Col>

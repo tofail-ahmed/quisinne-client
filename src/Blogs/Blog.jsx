@@ -1,7 +1,10 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
+// import ReactToPdf from 'react-to-pdf';
 
 const Blog = () => {
+
+      
       return (
             <Container>
                   <div className='my-3'>
@@ -33,9 +36,11 @@ const Blog = () => {
                         <h2>Q4:What is customHook? Why we create Custom Hook?</h2>
                         <h4>A custom hook is a reusable function in React that encapsulates the logic of a particular functionality that can be shared between components. We create custom hooks to avoid duplicating code and make our code more organized, modular, and reusable. Custom hooks allow us to extract stateful logic from a component and reuse it in other components. This makes our code more efficient and easier to maintain.</h4>
                   </div>
-
+                  
             </Container>
       );
 };
 
 export default Blog;
+
+

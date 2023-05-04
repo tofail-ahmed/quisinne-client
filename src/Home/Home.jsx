@@ -10,7 +10,7 @@ import { BsHandThumbsUp } from "react-icons/bs";
 const Home = () => {
       const [chefs, setChefs] = useState([])
       useEffect(() => {
-            fetch("http://localhost:5000/chefs/")
+            fetch("https://quisinne-de-french-server-tofail-ahmed.vercel.app/chefs/")
                   .then(res => res.json())
                   .then(data => setChefs(data))
       }, [])
