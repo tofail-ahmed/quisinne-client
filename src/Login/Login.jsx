@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { Authcontext } from '../Provider/AuthProvider';
 
 const Login = () => {
+  const { signIn } = useContext(Authcontext)
       const [email, setEmail] = useState('');
       const [password, setPassword] = useState('');
+      const [error,setError]=useState('')
+      const [success,setSuccess]=useState('')
     
       const handleSubmit = (event) => {
         event.preventDefault(); // prevent the form from submitting by default
         console.log('Email:', email, 'Password:', password);
-        // do whatever you want with the email and password data, such as sending it to a backend server
+        signIn(email, password)
+          .then(result => {
+            const loggedUser = result.user
+            console.log(loggedUser);
+            setSuccess("login Suucess")
+          })
+          .catch(error => {
+            console.log(error.message);
+            setError(error)
+          })
       }
     
       const handleEmailChange = (event) => {
@@ -40,6 +53,7 @@ const Login = () => {
                         Submit
                   </Button>
                   <p>New to <span>Quisinne De French</span>? <Link to={'/register'}>Register</Link></p>
+                  <p>{success}</p>
             </Form>
             </Container>
 

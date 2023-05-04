@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 import { Authcontext } from '../Provider/AuthProvider';
 
 const Register = () => {
-  const { createUser } = useContext(Authcontext)
+  const { createUser ,updateUserProfile} = useContext(Authcontext)
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  // const [photoUrl, setPhotoUrl] = useState('');
+  const [photoUrl, setPhotoUrl] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('')
 
@@ -24,6 +24,7 @@ const Register = () => {
       .then(result => {
         const loggedUser = result.user
         console.log(loggedUser);
+        updateUserProfile(name, photoUrl);
 
 
       })
@@ -42,9 +43,9 @@ const Register = () => {
     setEmail(event.target.value);
   };
 
-  // const handlePhotoUrlChange = (event) => {
-  //   setPhotoUrl(event.target.value);
-  // };
+  const handlePhotoUrlChange = (event) => {
+    setPhotoUrl(event.target.value);
+  };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -62,11 +63,11 @@ const Register = () => {
           <Form.Label>Email address</Form.Label>
           <Form.Control type='email' placeholder='Enter your email' value={email} onChange={handleEmailChange} />
         </Form.Group>
-        {/*
+
         <Form.Group className='mb-3' controlId='formBasicPhotoUrl'>
           <Form.Label>Photo URL</Form.Label>
           <Form.Control type='text' placeholder='Enter your photo URL' value={photoUrl} onChange={handlePhotoUrlChange} />
-        </Form.Group> */}
+        </Form.Group>
 
         <Form.Group className='mb-3' controlId='formBasicPassword'>
           <Form.Label>Password</Form.Label>
