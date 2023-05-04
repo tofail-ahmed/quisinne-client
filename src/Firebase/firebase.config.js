@@ -4,13 +4,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log("environment variables",import.meta.env.VITE_apiKey);
 const firebaseConfig = {
-  apiKey: "AIzaSyDn5se8FU5QfhUgm3Uy6CxbwHOn7md1cBQ",
-  authDomain: "quisinne-de-french.firebaseapp.com",
-  projectId: "quisinne-de-french",
-  storageBucket: "quisinne-de-french.appspot.com",
-  messagingSenderId: "660322111842",
-  appId: "1:660322111842:web:e94d20d311044b12995c3b"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
