@@ -37,7 +37,7 @@ const ChefDetails = () => {
                         <div className='d-flex recipe-details my-4 p-3 rounded-3'>
 
                               <Row>
-                                    <Col>
+                                    <Col lg={6}>
                                           <div>
                                                 <h2><span className='fw-bold'>Recipe:</span> {recipe.recipeName}</h2>
                                                 <p><span className='fw-bold'>cookingMethod:</span>{recipe.cookingMethod}</p>
@@ -58,7 +58,7 @@ const ChefDetails = () => {
                                                 </div>
                                           </div>
                                     </Col>
-                                    <Col className='text-center'>
+                                    <Col lg={6} className='text-center'>
                                           <img style={{ height: '300px', width: "300px" }} className=' rounded rounded-circle' src={recipe.recipe_pic} alt="" />
                                     </Col>
                               </Row>

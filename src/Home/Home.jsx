@@ -26,10 +26,10 @@ const Home = () => {
                                     chefs.map(chef => <div className='text-center d-flex border border-2 m-4 rounded-4  bg-info'>
 
                                           <Row>
-                                                <Col>
+                                                <Col lg={6}>
                                           <img style={{ width: "300px", height: "300px" }} className='rounded-4  border border-4 me-4' src={chef.chefPic} alt="" />
                                                 </Col>
-                                                <Col>
+                                                <Col lg={6}>
 
                                           <div className='m-4 d-flex flex-column align-items-start  my-auto'>
                                                 <h2 className='my-3'>{chef.chefName}</h2>
