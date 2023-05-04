@@ -15,11 +15,14 @@ const Login = () => {
       const handleSubmit = (event) => {
         event.preventDefault(); // prevent the form from submitting by default
         console.log('Email:', email, 'Password:', password);
+        setSuccess('')
         signIn(email, password)
           .then(result => {
             const loggedUser = result.user
             console.log(loggedUser);
             setSuccess("login Suucess")
+            setEmail('')
+            setPassword('')
           })
           .catch(error => {
             console.log(error.message);
@@ -53,7 +56,12 @@ const Login = () => {
                         Submit
                   </Button>
                   <p>New to <span>Quisinne De French</span>? <Link to={'/register'}>Register</Link></p>
-                  <p>{success}</p>
+                 {
+                  success&&  <p className='text-success'>{success}</p>
+                 }
+                 {
+                  error&&  <p className='text-danger'>{error}</p>
+                 }
             </Form>
             </Container>
 

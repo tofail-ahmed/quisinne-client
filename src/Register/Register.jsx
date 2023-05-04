@@ -12,10 +12,18 @@ const Register = () => {
   const [photoUrl, setPhotoUrl] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
 
   const handleSubmit = (event) => {
+   
     event.preventDefault();
     console.log('Name:', name, 'Email:', email, 'Password:', password);
+
+    if (!name || !email || !password) {
+      setError( 'Please fill in all required fields' );
+      return;
+    }
+
     if (password.length < 6) {
       setError("password must be 6 chracter long")
       return
@@ -24,8 +32,13 @@ const Register = () => {
       .then(result => {
         const loggedUser = result.user
         console.log(loggedUser);
+        setSuccess('User Registered Succesfully')
         updateUserProfile(name, photoUrl);
-
+        setName('')
+        setEmail('')
+        setPhotoUrl('')
+        setPassword('')
+        setError('')
 
       })
       .catch(error => {
@@ -78,6 +91,12 @@ const Register = () => {
         <Button variant='primary' type='submit'>
           Submit
         </Button>
+       {
+        error&& <p className='text-warning'>Error!!!!{error}</p>
+       }
+       {
+        success&& <p className='text-success'>Congratulations!!!{success}</p>
+       }
         <p>
           Already have an account? <Link to={'/login'}>Login</Link>
         </p>

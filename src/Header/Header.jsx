@@ -16,11 +16,11 @@ const Header = () => {
       return (
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                   <Container>
-                        <Navbar.Brand href="#home">Quisinne De French</Navbar.Brand>
+                        <Navbar.Brand href="#home" style={{fontSize:"40px",color:"orange"}} className='fw-bold fst-italic '>Quisinne De French</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
                               <Nav className="me-auto">
-                                    <Link to={'/'}>Home</Link>
+                                    <Link className='btn btn-info text-decoration-none' to={'/'}>Home</Link>
 
 
                               </Nav>
@@ -28,7 +28,7 @@ const Header = () => {
                                     <Nav.Link href="#deets">Blog</Nav.Link>
                                     {
                                           user ?
-                                                <p><img style={{ width: "50px" }} className=' rounded-circle' src={user.photoURL} alt="" /> <Link onClick={handleLogout}>LogOut</Link></p>
+                                                <p><img style={{ width: "50px" }} className=' rounded-circle' src={user.photoURL} alt="" title={user.displayName}/> <Link onClick={handleLogout}>LogOut</Link></p>
                                                 
                                                 : <Link to={'/login'}>Login</Link>
                                     }
