@@ -14,6 +14,7 @@ import ChefDetails from './ChefDetails/ChefDetails.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
 import NotFound from './NotFound/NotFound.jsx';
+import Blog from './Blogs/Blog.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,9 +35,16 @@ const router = createBrowserRouter([
         loader:({params})=>fetch(`http://localhost:5000/chefs/${params.id}`)
         
       },{
+        path: '/blog',
+        element: <Blog></Blog>
+      },
+
+      {
         path:'*',
         element:<NotFound></NotFound>
       }
+
+
     ]
   },
 ]);

@@ -15,25 +15,25 @@ const Header = () => {
       }
       return (
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-                  <Container>
-                        <Navbar.Brand href="#home" style={{fontSize:"40px",color:"orange"}} className='fw-bold fst-italic '>Quisinne De French</Navbar.Brand>
+                  <Container className='d-flex align-items-center'>
+                        <Navbar.Brand style={{fontSize:"40px",color:"orange"}} className='fw-bold fst-italic flex-grow-1 '>Quisinne De French</Navbar.Brand>
                         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                         <Navbar.Collapse id="responsive-navbar-nav">
-                              <Nav className="me-auto">
-                                    <Link className='btn btn-info text-decoration-none' to={'/'}>Home</Link>
+                              
+                                    <Link className='btn btn-info text-decoration-none mx-2' to={'/'}>Home</Link>
 
 
-                              </Nav>
-                              <Nav>
-                                    <Nav.Link href="#deets">Blog</Nav.Link>
+                             
+                              
+                                    <Link className='btn btn-info text-decoration-none mx-2' to={'/blog'}>Blog</Link>
                                     {
                                           user ?
-                                                <p><img style={{ width: "50px" }} className=' rounded-circle' src={user.photoURL} alt="" title={user.displayName}/> <Link onClick={handleLogout}>LogOut</Link></p>
+                                                <p><img style={{ width: "50px" }} className=' rounded-circle mx-2' src={user.photoURL} alt="" title={user.displayName}/> <Link className='btn btn-danger' onClick={handleLogout}>LogOut</Link></p>
                                                 
-                                                : <Link to={'/login'}>Login</Link>
+                                                : <Link className='btn btn-primary mx-2' to={'/login'}>Login</Link>
                                     }
 
-                              </Nav>
+                              
                         </Navbar.Collapse>
                   </Container>
             </Navbar>
