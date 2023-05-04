@@ -8,8 +8,8 @@ import './ChefDetails.css'
 const ChefDetails = () => {
       const chef = useLoaderData()
       const { chefName, chefPic, recipes, description, numRecipes, experienceYears } = chef
-      const [clicked,setClicked]=useState(false)
-      const handleAddToFavorite=()=>{
+      const [clicked, setClicked] = useState(false)
+      const handleAddToFavorite = () => {
             setClicked(true)
             alert("added to favourite")
       }
@@ -17,17 +17,20 @@ const ChefDetails = () => {
             <Container>
 
                   <div className='chefDetailsBannerText border border-4 rounded-4 d-flex my-3'>
-
-                        <img style={{ width: "300px", height: "300px" }} className='rounded-4  border border-4 me-4' src={chefPic} alt="" />
-
-                        <div>
-                              <h1>{chefName}</h1>
-                              <h6><span className='fw-bold text-info'>Short bio of {chefName}:</span>{description}</h6>
-                              <p>Likes:9B</p>
-                              <h5>Number Of Recipes:{numRecipes}</h5>
-                              <p>Experienced of {experienceYears} Years</p>
-                        </div>
-
+                        <Row>
+                              <Col>
+                                    <img style={{ width: "300px", height: "300px" }} className='rounded-4  border border-4 me-4' src={chefPic} alt="" />
+                              </Col>
+                              <Col>
+                                    <div>
+                                          <h1>{chefName}</h1>
+                                          <h6><span className='fw-bold text-info'>Short bio of {chefName}:</span>{description}</h6>
+                                          <p>Likes:9B</p>
+                                          <h5>Number Of Recipes:{numRecipes}</h5>
+                                          <p>Experienced of {experienceYears} Years</p>
+                                    </div>
+                              </Col>
+                        </Row>
                   </div>
                   <h3 className='text-warning fw-bolder'>Here Is Some Famous Recipes Of <span className='fw-bold text-info'>{chefName}</span></h3>
                   {recipes.map(recipe =>
@@ -49,9 +52,9 @@ const ChefDetails = () => {
                                                 </div>
                                                 <div className='d-flex align-item-center justify-content-between'>
                                                       <p>Rating:{recipe.rating}</p>
-                                                     {
-                                                      !clicked && <Button onClick={handleAddToFavorite} className='btn btn-info'>Add to Favorite</Button>
-                                                     }
+                                                      {
+                                                            !clicked && <Button onClick={handleAddToFavorite} className='btn btn-info'>Add to Favorite</Button>
+                                                      }
                                                 </div>
                                           </div>
                                     </Col>

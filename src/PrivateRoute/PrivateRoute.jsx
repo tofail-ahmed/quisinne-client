@@ -6,13 +6,15 @@ const PrivateRoute = ({children}) => {
       const {user,loading}=useContext(Authcontext)
       const location=useLocation()
       if(loading){
-            return <div>Loading........</div>
+            return <div><div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div></div>
       }
       if(user){
             return children
       }
       return (
-            <Navigate to={'/login'} state={{from:location}} replace>Login</Navigate>
+            <Navigate to={'/login'} state={{from:location.pathname}} replace>Login</Navigate>
       );
 };
 

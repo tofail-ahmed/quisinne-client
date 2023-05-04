@@ -13,6 +13,7 @@ import Register from './Register/Register.jsx';
 import ChefDetails from './ChefDetails/ChefDetails.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoute from './PrivateRoute/PrivateRoute.jsx';
+import NotFound from './NotFound/NotFound.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +33,9 @@ const router = createBrowserRouter([
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
         loader:({params})=>fetch(`http://localhost:5000/chefs/${params.id}`)
         
+      },{
+        path:'*',
+        element:<NotFound></NotFound>
       }
     ]
   },

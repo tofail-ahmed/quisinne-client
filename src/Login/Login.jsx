@@ -23,6 +23,7 @@ const Login = () => {
             setSuccess("login Suucess")
             setEmail('')
             setPassword('')
+            setError('')
           })
           .catch(error => {
             console.log(error.message);
@@ -60,7 +61,7 @@ const Login = () => {
                   success&&  <p className='text-success'>{success}</p>
                  }
                  {
-                  error&&  <p className='text-danger'>{error}</p>
+                  error&&  <p className='text-danger'>{error.message}</p>
                  }
             </Form>
             </Container>

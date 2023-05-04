@@ -24,11 +24,14 @@ const Home = () => {
                               <h2 className='text-center'>Some of Your Favorite Chefs are here</h2>
                               {
                                     chefs.map(chef => <div className='text-center d-flex border border-2 m-4 rounded-4  bg-info'>
+
+                                          <Row>
+                                                <Col>
                                           <img style={{ width: "300px", height: "300px" }} className='rounded-4  border border-4 me-4' src={chef.chefPic} alt="" />
+                                                </Col>
+                                                <Col>
 
-
-
-                                          <div className=' d-flex flex-column align-items-start  my-auto'>
+                                          <div className='m-4 d-flex flex-column align-items-start  my-auto'>
                                                 <h2 className='my-3'>{chef.chefName}</h2>
                                                 <h4 className='my-3'>Year Of experiences:{chef.experienceYears}</h4>
                                                 <h5 className='my-3'>Numbers of Recipes:{chef.numRecipes}</h5>
@@ -38,6 +41,8 @@ const Home = () => {
                                                       <Button className='btn btn-warning flex-shrink-1'><Link className='text-dark text-decoration-none' to={`${chef.chef_id}`}>See Details</Link></Button>
                                                 </div>
                                           </div>
+                                                </Col>
+                                          </Row>
 
                                     </div>
 
