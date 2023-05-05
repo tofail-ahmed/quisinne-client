@@ -59,7 +59,7 @@ const ChefDetails = () => {
                                                       {
                                                             !clicked && <Button  onClick={handleAddToFavorite } className='btn btn-info'>Add to Favorite</Button>
                                                       }
-                                                      <ToastContainer />
+                                                      
                                                 </div>
                                           </div>
                                     </Col>
@@ -72,6 +72,7 @@ const ChefDetails = () => {
 
                   )
                   }
+                  <ToastContainer />
             </Container>
       );
 };
