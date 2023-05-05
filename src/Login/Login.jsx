@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { Authcontext } from '../Provider/AuthProvider';
+import { FaGithub,FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const { signIn, googleSignIn,githubSignIn } = useContext(Authcontext)
@@ -78,10 +79,10 @@ const Login = () => {
           Submit
         </Button>
         <div>
-          <button onClick={handleGoogleSignIn} className="btn btn-secondary btn-primary my-4">Google SIgnIn</button>
+          <button onClick={handleGoogleSignIn} className="btn  btn-primary my-4"><FaGoogle></FaGoogle>  Google SIgnIn</button>
         </div>
         <div>
-          <button onClick={handleGithubSignIn} className="btn btn-secondary btn-primary">Github SIgnIn</button>
+          <button onClick={handleGithubSignIn} className="btn  btn-primary text-parimary"><FaGithub ></FaGithub>  Github SIgnIn</button>
         </div>
         <p>New to <span>Quisinne De French</span>? <Link to={'/register'}>Register</Link></p>
         {

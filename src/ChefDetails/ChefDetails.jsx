@@ -8,13 +8,13 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 const ChefDetails = () => {
-      const notify = () => toast("Added to favorite list!");
+      
       const chef = useLoaderData()
       const { chefName, chefPic, recipes, description, numRecipes, experienceYears } = chef
       const [clicked, setClicked] = useState(false)
       const handleAddToFavorite = () => {
             setClicked(true)
-            toast("Wow so easy!")
+            toast("Added to favorite list!")
             
       }
       return (

@@ -53,11 +53,13 @@
 
 
 
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { PDFDownloadLink, PDFViewer, Document, Page, Text } from '@react-pdf/renderer';
+import { Authcontext } from '../Provider/AuthProvider';
 
 const Blog = () => {
+      const {loading}=useContext(Authcontext)
       const myDoc = (
             <Document>
                   <Page>
@@ -107,12 +109,22 @@ const Blog = () => {
             pdfRef.current.updateContainer(myDoc);
             pdfRef.current.download();
       };
+      if(loading){
+            return <div><div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div></div>
+      }
 
       return (
             <Container>
                   <div >
+
                     <PDFViewer style={{ width: '100%', height: '500px' }} ref={pdfRef}>
-                          {myDoc}
+                        
+                              
+
+                          { myDoc}
+                        
                     </PDFViewer>
                     <Button variant='primary' onClick={handleDownloadPDF}>
                           Download PDF
@@ -123,6 +135,63 @@ const Blog = () => {
 };
 
 export default Blog;
+
+
+
+
+
+
+
+
+// import React, { useRef } from 'react';
+// import { Button, Container } from 'react-bootstrap';
+// import { PDFDownloadLink, PDFViewer, Document, Page, Text } from '@react-pdf/renderer';
+
+// const Blog = () => {
+//   const myDoc = (
+//     <Document>
+//       <Page>
+//         <Text>
+//           Q4:What is customHook? Why we create Custom Hook?
+//           A custom hook is a reusable function in React that encapsulates the logic of a particular functionality that can be shared between components. We create custom hooks to avoid duplicating code and make our code more organized, modular, and reusable. Custom hooks allow us to extract stateful logic from a component and reuse it in other components. This makes our code more efficient and easier to maintain.
+//         </Text>
+//       </Page>
+//     </Document>
+//   );
+//   const pdfRef = useRef();
+
+//   const handleDownloadPDF = () => {
+//     pdfRef.current.updateContainer(myDoc);
+//     pdfRef.current.download();
+//   };
+
+//   return (
+//     <Container>
+//       <div className='my-3'>
+//         <PDFViewer style={{ width: '100%', height: '500px' }} ref={pdfRef}>
+//           {myDoc}
+//         </PDFViewer>
+//         <Button variant='primary' onClick={handleDownloadPDF}>
+//           Download PDF
+//         </Button>
+//       </div>
+//       <style jsx>{`
+//         @media (max-width: 768px) {
+//           .my-3 {
+//             padding: 1rem;
+//           }
+//         }
+//       `}</style>
+//     </Container>
+//   );
+// };
+
+// export default Blog;
+
+
+
+
+
 
 
 
